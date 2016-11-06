@@ -1,13 +1,12 @@
 import React from 'react';
 import 'styles/core.scss';
+import AppBar from 'material-ui/AppBar';
 
 export const CoreLayout = ({children}) => (
-        <div className="container-fluid">
-        <nav className="navbar navbar-fixed-top navbar-dark bg-inverse">
-        </nav>
-
-            {children}
-        </div>
+    <div className="mainContainer">
+        <AppBar title="Rapid7 Belfast Office Sports" iconClassNameRight="muidocs-icon-navigation-expand-more"/> 
+        {children}
+    </div>
 );
 
 CoreLayout.propTypes = {

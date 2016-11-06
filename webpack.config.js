@@ -17,27 +17,12 @@ module.exports = {
         failOnWarning: false,
         formatter: require('eslint-friendly-formatter')
     },
-    externals: [
-        {
-            'react': {
-                root: 'React',
-                commonjs2: 'react',
-                commonjs: 'react',
-                amd: 'react'
-            }
-        },
-        {
-            'react-dom': {
-                root: 'ReactDOM',
-                commonjs2: 'react-dom',
-                commonjs: 'react-dom',
-                amd: 'react-dom'
-            }
-        }
-    ],
+    externals: {},
+
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'src/index.template.ejs'
+            template: 'src/index.template.ejs',
+            inject: 'body'
         }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin()

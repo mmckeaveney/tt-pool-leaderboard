@@ -1,16 +1,16 @@
 import { combineReducers } from 'redux';
 
 // Reducers
-import counterReducer from 'modules/CounterDucks';
+import playerReducer from 'modules/PlayerDucks';
 
 export const makeRootReducer = (asyncReducers) => {
     return combineReducers({
         // Add sync reducers here
-        counterReducer,
+        playerReducer,
         ...asyncReducers
     });
 };
 
-export { counterReducer };
+export { playerReducer };
 
 export default makeRootReducer;
