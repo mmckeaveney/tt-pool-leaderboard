@@ -3,8 +3,7 @@ const RECORD_MATCH = 'matchActions:RECORD_MATCH';
 const TOGGLE_RECORD_MATCH_DIALOG = 'matchActions:TOGGLE_RECORD_MATCH_DIALOG';
 
 const initialState = {
-    matches: [],
-    recordMatchDialogOpen: false
+    matches: []
 };
 
 // Reducers
@@ -26,8 +25,4 @@ export default function reducer(state = initialState, action = {}) {
 }
 
 // Action Creators
-export const recordMatch = (match) => (dispatch) => (
-  dispatch({ type: RECORD_MATCH, payload: match })
-);
-
-export const toggleRecordMatchDialog = () => (dispatch) => dispatch({ type: TOGGLE_RECORD_MATCH_DIALOG });
+export const recordMatch = (match) => (dispatch) => dispatch({ type: RECORD_MATCH, match });

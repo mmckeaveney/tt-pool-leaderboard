@@ -1,10 +1,17 @@
-import ApiUtils from 'utils/ApiUtils';
+import restUtils from 'utils/restUtils';
 
-const getPlayerListBySport = (sport) => ApiUtils.get(sport);
+const findPlayerById = (playerId) => restUtils.get(`/player/${playerId}`);
 
-const addNewPlayer = (player) => ApiUtils.post(player);
+const createNewPlayer = (player) => restUtils.post(`/player/create`, player);
 
-export {
-  getPlayerListBySport,
-  addNewPlayer
+const updatePlayerDetails = (playerId, player) => restUtils.post(`/player/update/${playerId}`, player);
+
+const getPlayersByRankingForSport = (sport) => restUtils.get(`/player/byRanking/${sport}`);
+
+
+export default {
+  findPlayerById,
+  createNewPlayer,
+  updatePlayerDetails,
+  getPlayersByRankingForSport
 };

@@ -1,10 +1,9 @@
-import ApiUtils from 'utils/ApiUtils';
+import restUtils from 'utils/restUtils';
 
-const getListOfPreviousMatchesBySport = (sport) => ApiUtils.get(sport);
+const recordMatch = (match, sport) => restUtils.post(match, sport);
 
-const recordMatch = (match, sport) => ApiUtils.post(match, sport);
+
 
 export {
-  getListOfPreviousMatchesBySport,
   recordMatch
 };

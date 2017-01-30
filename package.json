@@ -6,37 +6,7 @@
   "scripts": {
     "test": "better-npm-run test",
     "build": "babel-node ./node_modules/webpack/bin/webpack --progress --profile --colors --config=webpack.config.js",
-    "dev": "better-npm-run dev",
-    "build:prod": "better-npm-run build:prod",
-    "dev:flow": "better-npm-run dev:flow",
-    "dev:mock": "better-npm-run dev:mock",
-    "transpile": "babel src --out-dir lib --copy-files"
-  },
-  "betterScripts": {
-    "build:prod": {
-      "command": "babel-node ./node_modules/webpack/bin/webpack --progress --profile --colors --config=webpack.config.prod.js",
-      "env": {
-        "NODE_ENV": "production"
-      }
-    },
-    "test": {
-      "command": "jest --config jest.config.json",
-      "env": {
-        "NODE_ENV": "test"
-      }
-    },
-    "dev": {
-      "command": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server --hot --colors --progress --profile --inline",
-      "env": {
-        "NODE_ENV": "development"
-      }
-    },
-    "dev:flow": {
-      "command": "npm run build",
-      "env": {
-        "NODE_ENV": "development"
-      }
-    }
+    "dev": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server --hot --colors --progress --profile --inline"
   },
   "repository": {
     "type": "git",
@@ -62,8 +32,6 @@
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-highcharts": "^10.0.0",
-    "react-motion": "^0.4.4",
-    "react-motion-ui-pack": "^0.9.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.7.0",
     "react-tap-event-plugin": "^1.0.0",
@@ -72,8 +40,7 @@
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.1.0",
     "reselect": "^2.5.4",
-    "roboto-fontface": "^0.6.0",
-    "velocity-react": "^1.1.5"
+    "roboto-fontface": "^0.6.0"
   },
   "devDependencies": {
     "babel": "6.5.2",
@@ -97,13 +64,10 @@
     "eslint-plugin-react": "^6.1.2",
     "express": "^4.14.0",
     "file-loader": "0.9.0",
-    "flow-bin": "^0.33.0",
-    "fs": "0.0.1-security",
     "html-webpack-plugin": "^2.22.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^15.1.1",
     "json-loader": "^0.5.4",
-    "minimist": "^1.2.0",
     "node-sass": "^3.8.0",
     "postcss": "5.2.0",
     "postcss-loader": "0.13.0",
@@ -111,7 +75,6 @@
     "react-hot-loader": "^3.0.0-beta.5",
     "react-test-renderer": "^15.3.2",
     "redux-mock-store": "^1.2.1",
-    "s3": "^4.4.0",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",

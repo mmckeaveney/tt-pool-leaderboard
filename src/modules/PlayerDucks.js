@@ -1,6 +1,7 @@
 // Actions
-const CREATE_PLAYER = 'tt-pool-leaderboard-js/playerReducer/CREATE_PLAYER';
-const GET_CHAMPIONS = 'tt-pool-leaderboard-js/playerReducer/GET_CHAMPIONS';
+const CREATE_PLAYER = 'playerActions:CREATE_PLAYER';
+const GET_CHAMPIONS = 'playerActions:GET_CHAMPIONS';
+const GET_PLAYERS_BY_RANKING_FOR_SPORT = 'playerActions:GET_PLAYERS_BY_RANKING_FOR_SPORT';
 
 const initialState = {
     players: []
@@ -9,6 +10,10 @@ const initialState = {
 // Reducers
 const REDUCERS = {
     [CREATE_PLAYER]: (state, action) => ({
+        ...state,
+        player: state.players.concat(action.player)
+    }),
+    [GET_PLAYERS_BY_RANKING_FOR_SPORT]: (state, action) => ({
         ...state,
         player: state.players.concat(action.player)
     }),
@@ -25,7 +30,14 @@ export default function reducer(state = initialState, action = {}) {
 }
 
 // Action Creators
-export const addPlayer = (player) => (dispatch) => (
+export const createNewPlayer = (player) => (dispatch) => (
+  dispatch({
+    type: CREATE_PLAYER,
+    payload: player
+}));
+
+// Action Creators
+export const getPlayersByRankingForSport = (player) => (dispatch) => (
   dispatch({
     type: CREATE_PLAYER,
     payload: player
