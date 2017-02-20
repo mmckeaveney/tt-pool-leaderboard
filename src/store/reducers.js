@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 
 // Reducers
-import playerReducer from 'modules/PlayerDucks';
-import matchReducer from 'modules/MatchDucks';
+import playerReducer from 'reducers/playerReducer';
+import matchReducer from 'reducers/matchReducer';
 
 export const makeRootReducer = (asyncReducers) => {
     return combineReducers({

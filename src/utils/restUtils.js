@@ -6,7 +6,8 @@ const axiosDefaults = {
     	'Accept' : 'application/json',
     	'Content-Type' : 'application/json'
        // Default headers can be added here.
-    }
+    },
+    baseURL: 'http://localhost:8090'
 };
 
 export default axios.create(axiosDefaults);

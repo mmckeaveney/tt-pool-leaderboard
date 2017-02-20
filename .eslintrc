@@ -84,7 +84,7 @@
     "no-useless-call": 2,
     "no-useless-concat": 2,
     "no-unused-expressions": 2,
-    "no-unused-vars": [1, {
+    "no-unused-vars": [0, {
       "vars":"all",
       "varsIgnorePattern": "React|[iI]gnored"
     }],
@@ -133,7 +133,7 @@
         'render'
       ]
     }],
-    "babel/arrow-parens": 2,
+    "babel/arrow-parens": 0,
     "babel/generator-star-spacing": 2
   }
 }
