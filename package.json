@@ -6,7 +6,8 @@
   "scripts": {
     "test": "better-npm-run test",
     "build": "babel-node ./node_modules/webpack/bin/webpack --progress --profile --colors --config=webpack.config.js",
-    "dev": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server --hot --colors --progress --profile --inline"
+    "dev": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server --hot --colors --progress --profile --inline",
+    "format": "prettier-eslint --write \"src/**/*.js\""
   },
   "repository": {
     "type": "git",
@@ -40,9 +41,11 @@
     "recompose": "^0.20.2",
     "redux": "^3.5.2",
     "redux-logger": "^2.6.1",
+    "redux-observable": "^0.14.1",
     "redux-thunk": "^2.1.0",
     "reselect": "^2.5.4",
-    "roboto-fontface": "^0.6.0"
+    "roboto-fontface": "^0.6.0",
+    "rxjs": "^5.2.0"
   },
   "devDependencies": {
     "babel": "6.5.2",
@@ -73,6 +76,8 @@
     "node-sass": "^3.8.0",
     "postcss": "5.2.0",
     "postcss-loader": "0.13.0",
+    "prettier-eslint": "^4.1.2",
+    "prettier-eslint-cli": "^3.0.0",
     "react-addons-test-utils": "^15.3.2",
     "react-hot-loader": "^3.0.0-beta.5",
     "react-test-renderer": "^15.3.2",

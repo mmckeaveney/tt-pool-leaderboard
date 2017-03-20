@@ -20,6 +20,9 @@ const store = createStore(initialState);
 // ========================================================
 const ROOT_NODE = document.getElementById('root');
 
-ReactDOM.render(<AppContainer store={store} history={hashHistory}/>, ROOT_NODE);
+ReactDOM.render(
+  <AppContainer store={store} history={hashHistory} />,
+  ROOT_NODE
+);
 
 export default AppContainer;

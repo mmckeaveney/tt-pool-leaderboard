@@ -1,4 +1,4 @@
-import React, { PropTypes } from "react";
+import React, { PropTypes } from 'react';
 import {
   Table,
   TableBody,
@@ -6,38 +6,56 @@ import {
   TableHeaderColumn,
   TableRow,
   TableRowColumn
-} from "material-ui/Table";
-import LoadingSpinner from "./Minor/LoadingSpinner";
-import { isNotEmptyOrNil } from "utils/utilityFunctions";
-import Either from "data.either";
-import { map, identity } from "ramda";
-import { eitherDefinedOrEmpty } from "utils/monads";
+} from 'material-ui/Table';
+import SearchIcon from 'material-ui/svg-icons/action/search';
+import LoadingSpinner from './Minor/LoadingSpinner';
+import { mapIndexed } from 'utils/utilityFunctions';
+import { identity, curry } from 'ramda';
+import { eitherDefinedOrEmpty } from 'utils/monads';
 
 const playersExist = eitherDefinedOrEmpty(
   <TableRow> No Players Exist </TableRow>
 );
 
-const LeaderboardTable = ({ title, players, isLoading }) => {
+const renderPlayerRow = curry((drilldown, { id, name }, rank) => {
+  return (
+    <TableRow key={id}>
+      <TableRowColumn>{`${rank === 0 ? '👑' : rank + 1}`}</TableRowColumn>
+      <TableRowColumn>{name}</TableRowColumn>
+      <TableRowColumn>
+        <SearchIcon onClick={() => drilldown(id)} />
+      </TableRowColumn>
+    </TableRow>
+  );
+});
+
+renderPlayerRow.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired
+};
+
+const LeaderboardTable = (
+  { title, players, isLoading, drilldown: playerDrilldown }
+) => {
   if (isLoading) {
     return <LoadingSpinner message="Players are loading" />;
   }
 
-  console.log(playersExist(players));
-
   return (
     <Table>
-      <TableHeader adjustForCheckbox={false}>
+      <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
         {title}
         <TableRow>
           <TableHeaderColumn>Rank</TableHeaderColumn>
-          <TableHeaderColumn>Firstname</TableHeaderColumn>
-          <TableHeaderColumn>Lastname</TableHeaderColumn>
+          <TableHeaderColumn>Player Name</TableHeaderColumn>
+          <TableHeaderColumn>Details</TableHeaderColumn>
         </TableRow>
       </TableHeader>
       <TableBody displayRowCheckbox={false}>
-        {playersExist(players)
-          .map((data) => console.log(data))          
-          .orElse(identity)}
+        {playersExist(players).cata({
+          Left: identity,
+          Right: mapIndexed(renderPlayerRow(playerDrilldown))
+        })}
       </TableBody>
     </Table>
   );
@@ -46,15 +64,8 @@ const LeaderboardTable = ({ title, players, isLoading }) => {
 LeaderboardTable.propTypes = {
   title: PropTypes.string,
   players: PropTypes.array,
-  isLoading: PropTypes.bool
+  isLoading: PropTypes.bool,
+  drilldown: PropTypes.func.isRequired
 };
 
 export default LeaderboardTable;
-
-// (player, idx) => (
-//             <TableRow key={player.id}>
-//               <TableRowColumn>{idx + 1}</TableRowColumn>
-//               <TableRowColumn>{player.firstName}</TableRowColumn>
-//               <TableRowColumn> {player.lastName} </TableRowColumn>
-//             </TableRow>
-//           ))

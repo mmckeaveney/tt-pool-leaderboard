@@ -46,7 +46,7 @@
     "brace-style": [2, "1tbs", {
       "allowSingleLine": true
     }],
-    "comma-dangle": 2,
+    "comma-dangle": [2, "never"],
     "comma-spacing": [2, {
       "after": true,
       "before": false
@@ -84,7 +84,7 @@
     "no-useless-call": 2,
     "no-useless-concat": 2,
     "no-unused-expressions": 2,
-    "no-unused-vars": [0, {
+    "no-unused-vars": [1, {
       "vars":"all",
       "varsIgnorePattern": "React|[iI]gnored"
     }],
@@ -103,6 +103,7 @@
       "nonwords": false,
       "words": true
     }],
+    "object-curly-spacing": [2, "always"],
     "template-curly-spacing": [2, "never"],
     "valid-jsdoc": [1, {
       "requireReturn": false,
@@ -133,7 +134,7 @@
         'render'
       ]
     }],
-    "babel/arrow-parens": 0,
+    "babel/arrow-parens": 1,
     "babel/generator-star-spacing": 2
   }
 }
