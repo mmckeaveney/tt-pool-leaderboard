@@ -3,19 +3,18 @@ import { combineReducers } from 'redux';
 // Reducers
 import playerReducer from 'reducers/playerReducer';
 import matchReducer from 'reducers/matchReducer';
+import modalReducer from 'reducers/modalReducer';
 
-export const makeRootReducer = (asyncReducers) => {
-    return combineReducers({
-        // Add sync reducers here
-        playerReducer,
-        matchReducer,
-        ...asyncReducers
-    });
+const makeRootReducer = (asyncReducers) => {
+  return combineReducers({
+    // Add sync reducers here
+    playerReducer,
+    matchReducer,
+    modalReducer,
+    ...asyncReducers
+  });
 };
 
-export { 
-    playerReducer,
-    matchReducer
- };
+export { playerReducer, matchReducer, modalReducer };
 
 export default makeRootReducer;
